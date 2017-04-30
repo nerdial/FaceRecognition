@@ -1,0 +1,18 @@
+{% extends 'layout/index.html' %}
+{% block content %}
+
+    <div class="page-header">
+        <h1>Create New User</h1>
+    </div>
+
+    <form method="post" action="">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Fullname</label>
+            <input type="text" class="form-control" placeholder="Fullname" id="name" name="name" required>
+        </div>
+
+        <button type="submit" class="btn btn-default">Create</button>
+    </form>
+
+{% endblock %}

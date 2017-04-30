@@ -1,0 +1,22 @@
+{% extends 'layout/index.html' %}
+{% block content %}
+
+    <table class="table table-striped">
+        <thead>
+
+        <th>Date</th>
+        <th>Time</th>
+        <th>Type</th>
+        </thead>
+        <tbody>
+        {% for log in logs %}
+            <tr>
+                <td> {{ log.jalali_date }}  </td>
+                <td> {{ log.get_time }}  </td>
+                <td> {{ log.type }}  </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

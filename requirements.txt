@@ -1,0 +1,4 @@
+cv2
+numpy
+pillow
+django=1.10

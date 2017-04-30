@@ -1,0 +1,27 @@
+{% extends 'layout/index.html' %}
+{% block content %}
+
+    <div class="page-header">
+        <h1>Update Your Setting</h1>
+    </div>
+
+    <form method="post" action="">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="algorithm">Face Recognition Algorithm</label>
+            <select class="form-control" id="algorithm" name="recognition_algorithm" name="recognition_algorithm" required >
+                <option value="createEigenFaceRecognizer" {% if setting.recognition_algorithm == 'createEigenFaceRecognizer' %}  selected {% endif %} >EigenFaceRecognizer</option>
+                <option value="createFisherFaceRecognizer" {% if setting.recognition_algorithm == 'createFisherFaceRecognizer' %} selected  {% endif %} >FisherFaceRecognizer</option>
+                <option value="createLBPHFaceRecognizer" {% if setting.recognition_algorithm == 'createLBPHFaceRecognizer' %} selected {% endif %} >LBPHFaceRecognizer</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="confidence">Confidence</label>
+            <input value="{{ setting.confidence }}" type="text" class="form-control" placeholder="Confidence" id="confidence" name="confidence" required>
+        </div>
+
+        <button type="submit" class="btn btn-default">Update</button>
+    </form>
+
+{% endblock %}

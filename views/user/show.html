@@ -1,0 +1,46 @@
+{% extends 'layout/index.html' %}
+{% block content %}
+
+    <a href="{% url "user:delete" user.id %}" type="button" class="btn btn-danger pull-right">Delete This User</a>
+    <div class="page-header">
+        <h1>{{ user.name }}</h1>
+    </div>
+
+
+
+    <div class="jumbotron">
+        <div class="container">
+           <form action="{% url 'user:simple_upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputFile">Select Picture</label>
+                <input name="image" type="file">
+            </div>
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+            <button type="submit" class="btn btn-default">Upload it</button>
+        </form>
+        </div>
+    </div>
+
+
+    <div class="bs-callout bs-callout-info" id="callout-helper-bg-specificity">
+
+
+    </div>
+
+
+
+    <br>
+    <br>
+    {% for image in images %}
+        <img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;"
+             src="/public/images/{{ image }}"
+             data-holder-rendered="true">
+    {% endfor %}
+
+
+    <br>
+    <br>
+
+
+{% endblock %}

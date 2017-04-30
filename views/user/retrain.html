@@ -1,0 +1,27 @@
+{% extends 'layout/index.html' %}
+{% block content %}
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% if message == False %}
+        <div class="jumbotron">
+            <h1>something is wrong</h1>
+            <a class="btn btn-primary btn-lg" href="#">
+                there is s.th wrong with information you provided us
+            </a>
+        </div>
+    {% else %}
+        <div class="jumbotron">
+            <h1>Task Completed</h1>
+            <a class="btn btn-primary btn-lg" href="#">
+                Your sample is ready to use
+            </a>
+        </div>
+    {% endif %}
+
+{% endblock %}

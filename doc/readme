@@ -1,0 +1,3 @@
+recognizer = cv2.face.createEigenFaceRecognizer()
+createFisherFaceRecognizer()
+createLBPHFaceRecognizer

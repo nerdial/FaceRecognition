@@ -1,0 +1,24 @@
+{% extends 'layout/index.html' %}
+
+{% block content %}
+
+    <a href="{% url "camera:picture" %}" type="button" class="btn btn-success pull-right">Take Picture</a>
+
+    <table class="table table-striped">
+        <thead>
+        <th>Name</th>
+        <th>Url</th>
+        <th>Status</th>
+        </thead>
+        <tbody>
+        {% for camera in cameras %}
+            <tr>
+                <td> {{ camera.name }}  </td>
+                <td> {{ camera.url }}  </td>
+                <td> {{ camera.active }}  </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
